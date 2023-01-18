@@ -7,7 +7,8 @@
             <img class="detail-img" src="{{$project->cover_image}}" alt="{{$project->name}}">
             <div>Client name: <strong>{{$project->client_name}}</strong></div>
             <div>Summary: <strong>{{$project->summary}}</strong></div>
-            </div>
+            <a class="btn btn-warning " href="{{route('admin.projects.edit', $project)}}" title="edit"><i class="fa-solid fa-pencil"></i></a>
+            @include('admin.partials.form-delete')
         </div>
     </main>
 @endsection
