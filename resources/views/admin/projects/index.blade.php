@@ -7,6 +7,7 @@
         <div class="col-12 d-flex">
             <h1>Projects</h1> <a href="{{route('admin.projects.create')}}" class="add-button btn btn-primary"><i class="fa-solid fa-plus"></i></a>
         </div>
+
         @foreach ($projects as $project)
         <div class="col-md-6 col-lg-4 my-2">
             <div class="card" style="width: 18rem;">
@@ -20,6 +21,7 @@
             </div>
         </div>
         @endforeach
+
         {{$projects->links()}}
     </div>
 </div>
