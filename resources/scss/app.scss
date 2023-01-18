@@ -5,7 +5,14 @@
     height: calc(100vh - 57px);
 }
 
+main {
+    height: calc(100vh - 57px);
+    overflow: auto;
+}
+
 .aside-menu {
+    position: fixed;
+    height: 100%;
     a {
         color: white;
         font-size: .9rem;
