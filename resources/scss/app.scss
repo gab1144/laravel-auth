@@ -1,1 +1,18 @@
-@import '~bootstrap/scss/bootstrap'
+@import '~bootstrap/scss/bootstrap';
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
+.main-wrapper{
+    height: calc(100vh - 57px);
+}
+
+.aside-menu {
+    a {
+        color: white;
+        font-size: .9rem;
+        text-decoration: none;
+        &:hover{
+            color: white;
+            text-decoration: underline;
+        }
+    }
+}
