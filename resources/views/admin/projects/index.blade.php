@@ -11,7 +11,8 @@
                 <img src="{{$project->cover_image}}" alt="{{$project->name}}">
                 <div class="card-body">
                   <h5 class="card-title">{{$project->name}}</h5>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <a href="{{route('admin.projects.show', $project)}}" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
+                  @include('admin.partials.form-delete')
                 </div>
             </div>
         </div>
