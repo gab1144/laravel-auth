@@ -15,7 +15,7 @@
                 <div class="card-body">
                   <h5 class="card-title">{{$project->name}}</h5>
                   <a href="{{route('admin.projects.show', $project)}}" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
-                  <a class="btn btn-warning " href="{{route('admin.projects.edit', $project)}}" title="edit"><i class="fa-solid fa-pencil"></i></a>
+                  <a class="btn btn-warning " href="{{route('admin.projects.edit', $project)}}" title="edit"><i class="fa-solid fa-pencil text-white"></i></a>
                   @include('admin.partials.form-delete')
                 </div>
             </div>
