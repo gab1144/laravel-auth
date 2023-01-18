@@ -60,6 +60,39 @@ class ProjectController extends Controller
         return view('admin.projects.show', compact('project'));
     }
 
+     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Project  $project
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Project $project)
+    {
+        return view('admin.projects.edit', compact('project'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $requestedit
+     * @param  \App\Models\Project  $project
+     * @return \Illuminate\Http\Response
+     */
+    public function update(ProjectRequest $request, Project $project)
+    {
+        $form_data = $request->all();
+
+        if($form_data['name'] != $project->title){
+            $form_data['slug'] = Project::generateSlug($form_data['name']);
+        }else{
+            $form_data['slug'] = $project->slug;
+        }
+
+        $project->update($form_data);
+
+        return redirect()->route('admin.projects.show', $project);
+    }
+
     /**
      * Remove the specified resource from storage.
      *
