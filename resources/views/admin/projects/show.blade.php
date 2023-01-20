@@ -4,7 +4,9 @@
     <main>
         <div class="container">
             <h1>{{$project->name}}</h1>
-            <img class="detail-img" src="{{$project->cover_image}}" alt="{{$project->name}}">
+            @if($project->cover_image)
+                <img class="detail-img" src="{{asset('storage/'.$project->cover_image)}}" alt="{{$project->cover_image_original_name}}">
+            @endif
             <div>Client name: <strong>{{$project->client_name}}</strong></div>
             <div>Summary: <strong>{{$project->summary}}</strong></div>
             <a class="btn btn-primary text-white" href="{{route('admin.projects.index', $project)}}" title="edit">Back to list</i></a>

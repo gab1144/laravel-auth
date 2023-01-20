@@ -3,7 +3,7 @@
 @section('content')
 <div class="container my-5">
     <h1>Add a new Project</h1>
-    <form action="{{route('admin.projects.store')}}" method="POST">
+    <form action="{{route('admin.projects.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
           <label for="name" class="form-label">Name</label>
@@ -37,16 +37,27 @@
 
         <div class="mb-3">
             <label for="cover_image" class="form-label">Image</label>
-            <input type="text" class="form-control" name="cover_image" id="cover_image" value="{{old('cover_image')}}">
+            <input
+            onchange="showImage(event)" type="file" class="form-control" name="cover_image" id="cover_image" value="{{old('cover_image')}}">
             @error('cover_image')
             <div class="invalid-feedback">
                 {{$message}}
              </div>
             @enderror
+            <div class="image mt-2" >
+                <img id='output-image' width="150" src="" alt="">
+            </div>
         </div>
 
         <button type="submit" class="btn btn-primary">Add to list</button>
     </form>
+
+    <script>
+        function showImage(event){
+            const tagImage = document.getElementById('output-image');
+            tagImage.src = URL.createObjectURL(event.target.files[0]);
+        }
+    </script>
 </div>
 
 @endsection
