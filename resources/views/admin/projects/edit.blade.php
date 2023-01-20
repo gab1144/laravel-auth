@@ -3,7 +3,7 @@
 @section('content')
 <div class="container my-5">
     <h1>Edit project {{$project->name}}</h1>
-    <form action="{{route('admin.projects.update', $project)}}" method="POST">
+    <form action="{{route('admin.projects.update', $project)}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -39,16 +39,26 @@
 
         <div class="mb-3">
             <label for="cover_image" class="form-label">Image</label>
-            <input type="text" class="form-control" name="cover_image" id="cover_image" value="{{old('cover_image', $project->cover_image)}}">
+            <input
+            onchange="showImage(event)" type="file" class="form-control" name="cover_image" id="cover_image" value="{{old('cover_image', $project->cover_image)}}">
             @error('cover_image')
             <div class="invalid-feedback">
                 {{$message}}
              </div>
             @enderror
+            <div class="image mt-2" >
+                <img id='output-image' width="150" src="{{ asset('storage/' . $project->cover_image) }}" alt="{{$project->cover_image_original_name}}">
+            </div>
         </div>
 
         <button type="submit" class="btn btn-primary">Update</button>
     </form>
 </div>
 
+<script>
+    function showImage(event){
+        const tagImage = document.getElementById('output-image');
+        tagImage.src = URL.createObjectURL(event.target.files[0]);
+    }
+</script>
 @endsection
