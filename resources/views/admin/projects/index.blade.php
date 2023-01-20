@@ -11,9 +11,9 @@
         <table class="table">
             <thead>
               <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Nome progetto</th>
-                <th scope="col">Nome cliente</th>
+                <th scope="col"><a href="{{route('admin.projects.orderby',['id',$direction])}}">ID</a></th>
+                <th scope="col"><a href="{{route('admin.projects.orderby',['name',$direction])}}">Nome progetto</a></th>
+                <th scope="col"><a href="{{route('admin.projects.orderby',['client_name',$direction])}}">Nome cliente</a></th>
                 <th scope="col">Azioni</th>
               </tr>
             </thead>
