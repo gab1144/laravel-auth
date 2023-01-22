@@ -51,13 +51,21 @@
 
         <button type="submit" class="btn btn-primary">Add to list</button>
     </form>
-
-    <script>
-        function showImage(event){
-            const tagImage = document.getElementById('output-image');
-            tagImage.src = URL.createObjectURL(event.target.files[0]);
-        }
-    </script>
 </div>
+
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#summary' ),{
+            toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' ],
+        })
+        .catch( error => {
+            console.error( error );
+        } );
+
+    function showImage(event){
+        const tagImage = document.getElementById('output-image');
+        tagImage.src = URL.createObjectURL(event.target.files[0]);
+    }
+</script>
 
 @endsection

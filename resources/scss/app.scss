@@ -42,3 +42,7 @@ thead {
         text-decoration: none;
     }
 }
+
+.ck-editor__editable[role="textbox"] {
+    height: 300px;
+}
