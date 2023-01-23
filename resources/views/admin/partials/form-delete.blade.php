@@ -1,4 +1,4 @@
-<form onsubmit="return confirm('Confermi l\'eliminazione di: {{ $project->title }}')"
+<form onsubmit="return confirm('Confermi l\'eliminazione di: {{ $project->name }}')"
     action="{{ route('admin.projects.destroy', $project) }}" method="POST" class="d-inline">
     @csrf
     @method('DELETE')

@@ -2,13 +2,13 @@
 
 @section('content')
 <div class="container my-5">
-    <h1>Edit project {{$project->name}}</h1>
+    <h1>Modifica il progetto {{$project->name}}</h1>
     <form action="{{route('admin.projects.update', $project)}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
         <div class="mb-3">
-          <label for="name" class="form-label">Name</label>
+          <label for="name" class="form-label">Nome</label>
           <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" value="{{old('name', $project->name)}}">
           @error('name')
             <div class="invalid-feedback">
@@ -18,7 +18,7 @@
         </div>
 
         <div class="mb-3">
-          <label for="client_name" class="form-label">Client name</label>
+          <label for="client_name" class="form-label">Nome cliente</label>
           <input type="text" class="form-control @error('client_name') is-invalid @enderror" name="client_name" id="client_name" value="{{old('client_name', $project->client_name)}}">
           @error('client_name')
             <div class="invalid-feedback">
@@ -28,7 +28,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="summary" class="form-label">Summary</label>
+            <label for="summary" class="form-label">Sommario</label>
             <textarea class="form-control @error('summary') is-invalid @enderror" name="summary" id="summary" cols="30" rows="10">{{old('summary', $project->summary)}}</textarea>
             @error('summary')
             <div class="invalid-feedback">
@@ -38,7 +38,7 @@
           </div>
 
         <div class="mb-3">
-            <label for="cover_image" class="form-label">Image</label>
+            <label for="cover_image" class="form-label">Immagine</label>
             <input
             onchange="showImage(event)" type="file" class="form-control" name="cover_image" id="cover_image" value="{{old('cover_image', $project->cover_image)}}">
             @error('cover_image')
@@ -51,7 +51,7 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="submit" class="btn btn-primary">Salva le modifiche</button>
     </form>
 </div>
 

@@ -5,8 +5,14 @@
     <div class="row">
 
         <div class="col-12 d-flex">
-            <h1>Projects</h1> <a href="{{route('admin.projects.create')}}" class="add-button btn btn-primary"><i class="fa-solid fa-plus"></i></a>
+            <h1>Progetti</h1> <a href="{{route('admin.projects.create')}}" class="add-button btn btn-primary"><i class="fa-solid fa-plus"></i></a>
         </div>
+
+        @if (session('deleted'))
+        <div class="alert alert-success" role="alert">
+            {{session('deleted')}}
+        </div>
+        @endif
 
         <table class="table">
             <thead>
