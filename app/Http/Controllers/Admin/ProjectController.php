@@ -17,7 +17,12 @@ class ProjectController extends Controller
      */
     public function index(){
 
-        $projects = Project::orderBy('id', 'desc')->paginate(10);
+        if(isset($_GET['search'])){
+            $search = $_GET['search'];
+            $projects = Project::where('name','like',"%$search%")->paginate(10);
+        }else{
+            $projects = Project::orderBy('id', 'desc')->paginate(10);
+        }
 
         $direction = 'desc';
 
